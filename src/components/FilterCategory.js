@@ -26,7 +26,7 @@ function FilterCategory() {
             <div>
                 <form onSubmit={handleSearch}>
                 <input onChange={(e) => setQuery(e.target.value)}></input>
-                <input type="submit" ></input>
+                <input type="submit" value="Search"></input>
                 </form>
             </div>
         </div>
