@@ -28,13 +28,13 @@ Open it in ``Visual Studio Code``:
 ## Running the application
 To run the application:
 
-- Open a new terminal:
+- Open a new terminal and run:
 
-    npm install
+      npm install
     
-This will install necessary dependencies.
+This will install necessary dependencies. After this run:
 
-- npm start
+    npm start
 
 This opens our browser window to view the code challenge.
 
