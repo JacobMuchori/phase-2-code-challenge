@@ -1,29 +1,33 @@
 import React, { useState } from "react";
-//import Transaction from "./Transaction";
+import Transaction from "./Transaction";
+import { useEffect } from "react";
 
-function FilterCategory(props) {
-    const [data, setData] =useState({
-        id: '',
-        date: '',
-        description: '',
-        category: '',
-        amount: '',
+function FilterCategory() {
+    const [data, setData] =useState([])
+    const [query, setQuery] = useState("")
+    useEffect(() => {
+        fetch("https://jacobmuchori.github.io/JacobMuchori.bank.io/db.json?q=" + query)
+        .then((response) => response.json())
+        .then((results) => {
+          setData(results.transactions)
         })
+      }, [query])
 
-    function filterData(e) {
-        e.preventDefault();
-        setData(e.target.value)
+    function handleSearch(e) {
+        e.preventDefault()
+        setQuery(e.target.value)
+        return (
+            <Transaction date={data.date} description={data.description} category={data.category} amount={data.amount}/>
+        )
     }
-  /* if(data.length > 0) {
-    const newData= data.filter((trans) => trans.id !== id || trans.date !== date || trans.description !== description || trans.category !== category || trans.amount !== amount);
-    return <Transaction date={newData.date} description={newData.description} category={newData.category} amount={newData.amount}/>
-    }
-    else*/
+
     return(
-        <div className="">
+        <div>
             <div>
-                <input type="text" placeholder="Search"></input>
-                <input type="submit" value={data} onChange={filterData}></input>
+                <form onSubmit={handleSearch}>
+                <input onChange={(e) => setQuery(e.target.value)}></input>
+                <input type="submit" ></input>
+                </form>
             </div>
         </div>
     )
