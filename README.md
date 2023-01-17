@@ -6,7 +6,9 @@ This code challenge is about a web application with the title: Bank of Flatiron.
 # Installation
 
 ## Alternative one
-Click on the github pages link below to be directly taken to the application.
+Click on the github pages link below to be directly taken to the application:
+
+  https://cerulean-blancmange-f5b4e1.netlify.app/
 
 ## Alternative 2
 To be able to run this program on your computer:
